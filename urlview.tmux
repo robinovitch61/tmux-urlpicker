@@ -22,7 +22,5 @@ else
   tmux bind-key "$key" capture-pane -J \\\; \
     save-buffer "${TMPDIR:-/tmp}/tmux-buffer" \\\; \
     delete-buffer \\\; \
-    if-shell -F "#{window_zoomed_flag}" \
-      "display-popup -B -E \"$picker '${TMPDIR:-/tmp}/tmux-buffer'\"" \
-      "split-window -l 10 \"$picker '${TMPDIR:-/tmp}/tmux-buffer'\""
+    display-popup -B -E "$picker '${TMPDIR:-/tmp}/tmux-buffer'"
 fi
